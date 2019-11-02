@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "919578077911",
+    "firebase_url": "https://presensiperkuliahan.firebaseio.com",
+    "project_id": "presensiperkuliahan",
+    "storage_bucket": "presensiperkuliahan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919578077911:android:11715267081427ad775e92",
+        "android_client_info": {
+          "package_name": "com.proyek.presensiperkuliahan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919578077911-veu27pphjn1d0olgiro3gr4k3lr7gisl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.proyek.presensiperkuliahan",
+            "certificate_hash": "806b29c3ef72f3bfe4ec62d07fe0e0253b387040"
+          }
+        },
+        {
+          "client_id": "919578077911-hqls6pkpa5707c27s3ha43q4n06gafum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKLBdLPKr1bBA0WsXGWtzZUKPwXoMl3ME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919578077911-hqls6pkpa5707c27s3ha43q4n06gafum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

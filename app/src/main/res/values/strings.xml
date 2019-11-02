@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Presensi Perkuliahan</string>
+    <string name="hint_mail">E-mail</string>
+    <string name="hint_pass">Password</string>
+    <string name="login">Login</string>
+    <string name="title_activity_content__login">Content_Login</string>
+    <string name="pls">Aplikasi Presensi</string>
+    <string name="logo">LOGO</string>
+    <string name="title_activity_login">login</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="minimum_password">Password Kurang</string>
+    <string name="auth_failed">Login Gagal</string>
+    <string name="welcome">Selamat Datang di Aplikasi PRESMA</string>
+    <string name="sign_out">Sign Out</string>
+</resources>
