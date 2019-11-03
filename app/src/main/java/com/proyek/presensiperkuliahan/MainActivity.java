@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 //
+
         signOut = (Button) findViewById(R.id.btnSignOut);
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 //
-
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public void TambahPertemuan (View view) {
+        Intent intent = new Intent(MainActivity.this, FormPertemuan.class);
+        startActivity(intent);
     }
 
     //sign out method

@@ -12,4 +12,5 @@
     <string name="auth_failed">Login Gagal</string>
     <string name="welcome">Selamat Datang di Aplikasi PRESMA</string>
     <string name="sign_out">Sign Out</string>
+    <string name="tambah_pertemuan">Tambah Pertemuan</string>
 </resources>
