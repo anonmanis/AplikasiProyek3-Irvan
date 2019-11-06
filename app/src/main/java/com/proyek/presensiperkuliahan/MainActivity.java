@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
     //sign out method
     public void signOut() {
         auth.signOut();
+        finish();
     }
     //end
 }
