@@ -1,62 +1,81 @@
 package com.proyek.presensiperkuliahan;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class FormPertemuan extends AppCompatActivity {
-    private TextView npm, nama;
-    private FirebaseDatabase getDatabase;
-    private DatabaseReference getRefenence;
+    private DatabaseReference mDatabase;
+
+    private FirebaseRecyclerAdapter<mahasiswa, MahasiswaViewHolder> mAdapter;
+    private RecyclerView mRecycler;
+    private LinearLayoutManager mManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_pertemuan);
 
-        npm = findViewById(R.id.tvNPM);
-        nama = findViewById(R.id.tvNama);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        getDatabase = FirebaseDatabase.getInstance();
-        getRefenence = getDatabase.getReference();
+        mRecycler = findViewById(R.id.list_mahasiswa);
+        mRecycler.setHasFixedSize(true);
 
-        getRefenence.child("PresensiMhs").addChildEventListener(new ChildEventListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                //Mengambil daftar item dari database, setiap kali ada turunannya
-                FormPertemuan mahasiswa = dataSnapshot.getValue(FormPertemuan.class);
-                npm.setText("NIM : "+ mahasiswa.npm);
-                nama.setText("Nama : "+ mahasiswa.nama);
-            }
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                //......
-            }
+        mManager = new LinearLayoutManager(this);
+        mManager.setReverseLayout(true);
+        mManager.setStackFromEnd(true);
+        mRecycler.setLayoutManager(mManager);
 
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                //......
-            }
+        Query query = getQuery(mDatabase);
 
+        FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<mahasiswa>()
+                .setQuery(query, mahasiswa.class)
+                .build();
+
+        mAdapter = new FirebaseRecyclerAdapter<mahasiswa, MahasiswaViewHolder>(options){
             @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                //.....
+            public MahasiswaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+                return new MahasiswaViewHolder(inflater.inflate(R.layout.data_mahasiswa, parent, false));
             }
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                //Digunakan untuk menangani kejadian Error
-                Log.e("MyListData", "Error: ", databaseError.toException());
+            protected void onBindViewHolder(MahasiswaViewHolder holder, int position, final mahasiswa model) {
+                holder.bindToMahasiswa(model);
             }
-        });
+        };
+        mAdapter.notifyDataSetChanged();
+        mRecycler.setAdapter(mAdapter);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (mAdapter != null) {
+            mAdapter.startListening();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAdapter != null) {
+            mAdapter.stopListening();
+        }
+    }
+
+    private Query getQuery(DatabaseReference mDatabase){
+        Query query = mDatabase.child("PresensiMhs");
+        return query;
+    }
+
 }

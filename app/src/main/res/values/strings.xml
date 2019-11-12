@@ -13,4 +13,6 @@
     <string name="welcome">Selamat Datang di Aplikasi PRESMA</string>
     <string name="sign_out">Sign Out</string>
     <string name="tambah_pertemuan">Tambah Pertemuan</string>
+    <string name="nama">Nama</string>
+    <string name="NPM">NPM</string>
 </resources>
