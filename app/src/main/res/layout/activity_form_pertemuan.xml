@@ -1,101 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".FormPertemuan">
 
     <TextView
         android:id="@+id/tampilan3"
         android:layout_width="230dp"
         android:layout_height="27dp"
+        android:layout_gravity="center"
         android:text="Penambahan Pertemuan"
         android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036" />
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/pertemuanTeks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pertemuan Ke-"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/materiTeks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:text="Materi"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pertemuanTeks" />
+        <TextView
+            android:id="@+id/pertemuanTeks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pertemuan Ke-" />
+
+        <EditText
+            android:id="@+id/etPertemuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Isi dengan ANGKA"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/matakuliah"
+            android:layout_width="94dp"
+            android:layout_height="wrap_content"
+            android:text="Matakuliah" />
+
+        <EditText
+            android:id="@+id/etMatakuliah"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:ems="10"
+            android:hint="Matakuliah"
+            android:inputType="textLongMessage" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/materiTeks"
+            android:layout_width="94dp"
+            android:layout_height="wrap_content"
+            android:text="Materi" />
+
+        <EditText
+            android:id="@+id/etMateri"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:ems="10"
+            android:hint="Tema Materi"
+            android:inputType="textLongMessage" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/listMhs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="492dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:text="Mahasiswa"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMateri"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/etPertemuan"
-        android:layout_width="260dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="80dp"
-        android:ems="10"
-        android:hint="Isi dengan ANGKA"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pertemuanTeks"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etMateri"
-        android:layout_width="260dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:hint="Tema Materi"
-        android:inputType="textLongMessage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
-        app:layout_constraintStart_toEndOf="@+id/materiTeks"
-        app:layout_constraintTop_toBottomOf="@+id/etPertemuan" />
+        android:textSize="24sp" />
 
     <LinearLayout
-        android:layout_width="410dp"
-        android:layout_height="494dp"
-        android:layout_margin="16dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listMhs">
+        android:layout_width="match_parent"
+        android:layout_height="342dp"
+        android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_mahasiswa"
-            android:layout_width="429dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="-22dp"
             tools:layout_editor_absoluteY="267dp" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:onClick="submitPrtmn"
+            android:text="Submit"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+</LinearLayout>

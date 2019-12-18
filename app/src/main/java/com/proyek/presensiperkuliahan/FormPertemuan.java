@@ -1,8 +1,13 @@
 package com.proyek.presensiperkuliahan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -76,6 +81,24 @@ public class FormPertemuan extends AppCompatActivity {
     private Query getQuery(DatabaseReference mDatabase){
         Query query = mDatabase.child("PresensiMhs");
         return query;
+    }
+
+    public void submitPrtmn (View view){
+        EditText etPertmuan = (EditText) findViewById(R.id.etPertemuan);
+        EditText etMatkul = (EditText) findViewById(R.id.etMatakuliah);
+        EditText etMateri = (EditText) findViewById(R.id.etMateri);
+        TextView statKhdrn = (TextView) findViewById(R.id.tvA);
+        TextView tvMhswId1 = (TextView) findViewById(R.id.tvNPM);
+
+        DatabaseReference myRef = mDatabase.child("PresensiMhs").child(tvMhswId1.getText().toString()).child("Matakuliah").child(etMatkul.getText().toString()).child("Pertemuan").child(etPertmuan.getText().toString());
+
+        myRef.child("Materi").setValue(etMateri.getText().toString());
+        myRef.child("StatusPresensi").setValue(statKhdrn.getText().toString());
+
+        Intent intent = new Intent(FormPertemuan.this, MainActivity.class);
+        Toast.makeText(getApplicationContext(), "Data Berhasil Di-input", Toast.LENGTH_SHORT).show();
+        startActivity(intent);
+        finish();
     }
 
 }

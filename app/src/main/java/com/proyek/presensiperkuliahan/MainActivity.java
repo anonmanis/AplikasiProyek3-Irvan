@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Berhasil Sign Out", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Sudah Sign Out", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, login.class));
                 signOut();
             }

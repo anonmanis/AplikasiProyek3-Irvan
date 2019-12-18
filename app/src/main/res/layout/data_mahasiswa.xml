@@ -39,7 +39,15 @@
             android:id="@+id/swtPresensi"
             android:layout_width="124dp"
             android:layout_height="wrap_content"
-            android:text="Kehadiran" />
+            android:text="Kehadiran"
+            android:textOff="Alpha"
+            android:textOn="Hadir" />
+
+        <TextView
+            android:id="@+id/tvA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="a" />
 
     </LinearLayout>
 

@@ -9,7 +9,7 @@
     <string name="title_activity_login">login</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="minimum_password">Password Kurang</string>
-    <string name="auth_failed">Login Gagal</string>
+    <string name="auth_failed">Login Gagal, Cek Koneksi Anda</string>
     <string name="welcome">Selamat Datang di Aplikasi PRESMA</string>
     <string name="sign_out">Sign Out</string>
     <string name="tambah_pertemuan">Tambah Pertemuan</string>
